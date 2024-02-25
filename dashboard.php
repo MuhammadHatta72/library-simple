@@ -172,13 +172,13 @@ if ($_SESSION['role'] != 'admin') {
             <div class="main-content">
             <section class="section">
                 <div class="section-header">
-                    <h1>Selamat Datang!</h1>
+                    <h1>Perpustakaan Digital</h1>
                 </div>
 
                 <div class="section-body">
                     <div class="row">
                         <div class="col-lg-12 mb-4 shadow p-3">
-                            <img src="assets/img/slide1.webp" style="width: 100%;" alt="carousel" class="img-fluid">
+                            <img src="assets/img/homepage.jpeg" style="width: 100%;" alt="carousel" class="img-fluid">
                         </div>
                     </div>
                     <div class="row">

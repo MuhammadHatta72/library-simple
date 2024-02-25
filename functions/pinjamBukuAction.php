@@ -20,8 +20,13 @@ if(isset($_POST['pinjamBuku'])){
     }
 
     $kode_peminjaman = 'PMJ-'.date('YmdHis');
-    $query = "INSERT INTO peminjamans (kode_peminjaman, id_buku, id_user, tgl_kunjungan, tujuan, status) VALUES ('$kode_peminjaman', '$id_book', '$id_user', '$tgl_kunjungan', '$tujuan_kunjungan', 'diproses')";
+
+    $tgl_kembali = date('Y-m-d', strtotime('+3 days', strtotime($tgl_kunjungan)));
+    $denda = 0;
+
+    $query = "INSERT INTO peminjamans (kode_peminjaman, id_buku, id_user, tgl_kunjungan, tujuan, tgl_kembali, denda, status) VALUES ('$kode_peminjaman', '$id_book', '$id_user', '$tgl_kunjungan', '$tujuan_kunjungan', '$tgl_kembali', '$denda', 'diproses')";
     $result = mysqli_query($conn, $query);
+
 
     if(!$result){
         echo "<script>alert('Data Pemesanan gagal ditambah.');window.location='../semua_buku.php';</script>";

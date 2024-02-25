@@ -235,6 +235,14 @@ if(isset($_GET['id'])){
                                                 <p><?= $peminjaman['tujuan']; ?></p>
                                             </div>
                                             <div class="col-md-12 mb-1">
+                                                <label for="tgl_kembali" class="form-label"><b>Tanggal Pengembalian</b></label>
+                                                <p><?= $peminjaman['tgl_kembali']; ?></p>
+                                            </div>
+                                            <div class="col-md-12 mb-1">
+                                                <label for="denda" class="form-label"><b>Denda</b></label>
+                                                <p>Rp. <?= number_format($peminjaman['denda'], 0, ',', '.'); ?></p>
+                                            </div>
+                                            <div class="col-md-12 mb-1">
                                                 <label for="tujuan" class="form-label"><b>Status</b></label>
                                                 <p><?= $peminjaman['status']; ?></p>
                                             </div>

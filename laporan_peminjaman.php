@@ -201,8 +201,11 @@ $query_hasil_peminjaman = mysqli_fetch_all($query_peminjaman, MYSQLI_ASSOC);
                                                         <th class="text-center">Kode</th>
                                                         <th class="text-center">Nama Buku</th>
                                                         <th class="text-center">Nama Pengunjung</th>
-                                                        <th class="text-center">Tanggal Kunjungan</th>
                                                         <th class="text-center">Status</th>
+                                                        <th class="text-center">Tujuan</th>
+                                                        <th class="text-center">Tgl. Peminjaman</th>
+                                                        <th class="text-center">Tgl. Pengembalian</th>
+                                                        <th class="text-center">Denda</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -211,14 +214,28 @@ $query_hasil_peminjaman = mysqli_fetch_all($query_peminjaman, MYSQLI_ASSOC);
                                                             <td><?= $hasil_peminjaman['kode_peminjaman']; ?></td>
                                                             <td><?= $hasil_peminjaman['judul_buku']; ?></td>
                                                             <td><?= $hasil_peminjaman['nama']; ?></td>
-                                                            <td><?= $hasil_peminjaman['tgl_kunjungan']; ?></td>
-                                                            <td>
-                                                                <?php if ($hasil_peminjaman['status'] == 'dipinjam') : ?>
-                                                                    <span class="badge badge-warning"><?= $hasil_peminjaman['status']; ?></span>
-                                                                <?php else : ?>
-                                                                    <span class="badge badge-success"><?= $hasil_peminjaman['status']; ?></span>
-                                                                <?php endif; ?>
+                                                            <td class="text-center">
+                                                                <?php
+                                                                if ($hasil_peminjaman['status'] == 'diproses'){
+                                                                ?>
+                                                                    <span class="badge bg-warning text-dark"><?= $hasil_peminjaman['status'] ?></span>
+                                                                <?php
+                                                                }
+                                                                elseif ($hasil_peminjaman['status'] == 'dikembalikan'){
+                                                                ?>
+                                                                    <span class="badge bg-primary"><?= $hasil_peminjaman['status'] ?></span>
+                                                                <?php
+                                                                }else{
+                                                                ?>
+                                                                    <span class="badge bg-success"><?= $hasil_peminjaman['status'] ?></span>
+                                                                <?php
+                                                                }
+                                                                ?>
                                                             </td>
+                                                            <td class="text-center"><?= $hasil_peminjaman['tujuan'] ?></td>
+                                                            <td class="text-center"><?= $hasil_peminjaman['tgl_kunjungan'] ?></td>
+                                                            <td class="text-center"><?= $hasil_peminjaman['tgl_kembali'] ?></td>
+                                                            <td class="text-center">Rp. <?= number_format($hasil_peminjaman['denda'], 0, ',', '.'); ?></td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>

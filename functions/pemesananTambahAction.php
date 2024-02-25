@@ -23,7 +23,10 @@ if(isset($_POST['tambahPemesanan'])){
     $tgl_kunjungan = $_POST['tgl_kunjungan'];
     $tujuan = $_POST['tujuan'];
 
-    $query = "INSERT INTO peminjamans (kode_peminjaman, id_buku, id_user, tgl_kunjungan, tujuan, status) VALUES ('$kode_peminjaman', '$id_buku', '$id_user', '$tgl_kunjungan', '$tujuan', 'dipinjam')";
+    $tgl_kembali = date('Y-m-d', strtotime('+3 days', strtotime($tgl_kunjungan)));
+    $denda = 0;
+
+    $query = "INSERT INTO peminjamans (kode_peminjaman, id_buku, id_user, tgl_kunjungan, tujuan, tgl_kembali, denda, status) VALUES ('$kode_peminjaman', '$id_buku', '$id_user', '$tgl_kunjungan', '$tujuan', '$tgl_kembali', '$denda', 'dipinjam')";
     $result = mysqli_query($conn, $query);
 
     // mengurangi jumlah buku

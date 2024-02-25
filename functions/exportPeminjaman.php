@@ -28,25 +28,29 @@ $pdf->Line(10,39,287,39);
 $pdf->SetLineWidth(0);
 
 
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(50,10,'Kode Peminjaman',1,0,'C');
-$pdf->Cell(50,10,'Nama Peminjam',1,0,'C');
-$pdf->Cell(60,10,'Judul Buku',1,0,'C');
-$pdf->Cell(40,10,'Tanggal Kunjungan',1,0,'C');
-$pdf->Cell(40,10,'TUjuan',1,0,'C');
+$pdf->SetFont('Arial','B',9);
+$pdf->Cell(40,10,'Kode Peminjaman',1,0,'C');
+$pdf->Cell(40,10,'Nama Peminjam',1,0,'C');
+$pdf->Cell(40,10,'Judul Buku',1,0,'C');
 $pdf->Cell(35,10,'Status',1,0,'C');
+$pdf->Cell(40,10,'Tujuan',1,0,'C');
+$pdf->Cell(30,10,'Tgl. Kunjungan',1,0,'C');
+$pdf->Cell(30,10,'Tgl. Pengembalian',1,0,'C');
+$pdf->Cell(20,10,'Denda',1,0,'C');
 
-$pdf->SetFont('Arial','',10);
+$pdf->SetFont('Arial','',9);
 // display data peminjaman
 $no = 1;
 foreach($query_hasil_peminjaman as $row){
     $pdf->Ln(10);
-    $pdf->Cell(50,10,$row['kode_peminjaman'],1,0,'C');
-    $pdf->Cell(50,10,$row['nama'],1,0,'C');
-    $pdf->Cell(60,10,$row['judul_buku'],1,0,'C');
-    $pdf->Cell(40,10,$row['tgl_kunjungan'],1,0,'C');
-    $pdf->Cell(40,10,$row['tujuan'],1,0,'C');
+    $pdf->Cell(40,10,$row['kode_peminjaman'],1,0,'C');
+    $pdf->Cell(40,10,$row['nama'],1,0,'C');
+    $pdf->Cell(40,10,$row['judul_buku'],1,0,'C');
     $pdf->Cell(35,10,$row['status'],1,0,'C');
+    $pdf->Cell(40,10,$row['tujuan'],1,0,'C');
+    $pdf->Cell(30,10,$row['tgl_kunjungan'],1,0,'C');
+    $pdf->Cell(30,10,$row['tgl_kembali'],1,0,'C');
+    $pdf->Cell(20,10,$row['denda'],1,0,'C');
     $no++;
 }
 

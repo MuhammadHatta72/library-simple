@@ -174,6 +174,9 @@ $query_hasil_peminjaman = mysqli_fetch_all($query_peminjaman, MYSQLI_ASSOC);
                                     <th class="text-center">Kode Buku</th>
                                     <th class="text-center">Judul Buku</th>
                                     <th class="text-center">Status</th>
+                                    <th class="text-center">Tgl. Peminjaman</th>
+                                    <th class="text-center">Tgl. Pengembalian</th>
+                                    <th class="text-center">Denda</th>
                                     <th class="text-center">Opsi</th>
                                 </tr>
                             </thead>
@@ -203,6 +206,9 @@ $query_hasil_peminjaman = mysqli_fetch_all($query_peminjaman, MYSQLI_ASSOC);
                                         }
                                         ?>
                                     </td>
+                                    <td class="text-center"><?= $pinjaman['tgl_kunjungan'] ?></td>
+                                    <td class="text-center"><?= $pinjaman['tgl_kembali'] ?></td>
+                                    <td class="text-center">Rp. <?= number_format($pinjaman['denda'], 0, ',', '.'); ?></td>
                                     <td class="d-flex justify-content-center gap-1 align-items-center">
                                         <a href="./detail_pinjam_user.php?id=<?= $pinjaman['id_peminjaman'] ?>" class="btn btn-sm btn-primary">
                                             <i class="fas fa-eye"></i> Detail
